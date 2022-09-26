@@ -1,11 +1,13 @@
 # Getting Started
 
-- [Getting Started](#getting-started)
-  - [Before you start](#before-you-start)
-    - [Required Software](#required-software)
-  - [If you use IntelliJ / WebStorm: Getting started with IntelliJ / WebStorm](#if-you-use-intellij--webstorm-getting-started-with-intellij--webstorm)
-  - [If you use Visual Studio Code: Getting Started with Visual Studio Code](#if-you-use-visual-studio-code-getting-started-with-visual-studio-code)
-  - [Take a closer look at the starter kit](#take-a-closer-look-at-the-starter-kit)
+<!-- TOC -->
+* [Getting Started](#getting-started)
+  * [Before you start](#before-you-start)
+    * [Required Software](#required-software)
+  * [If you use IntelliJ / WebStorm: Getting started with IntelliJ / WebStorm](#if-you-use-intellij--webstorm--getting-started-with-intellij--webstorm)
+  * [If you use Visual Studio Code: Getting Started with Visual Studio Code](#if-you-use-visual-studio-code--getting-started-with-visual-studio-code)
+  * [Take a closer look at the starter kit](#take-a-closer-look-at-the-starter-kit)
+<!-- TOC -->
 
 ## Before you start
 
