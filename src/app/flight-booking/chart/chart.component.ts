@@ -33,11 +33,11 @@ export class ChartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.ngZone.runOutsideAngular(() => {
-    this.chart.container(this.container.nativeElement);
-    this.chart.draw();
-    // this.cdr.detach();
-    // });
+    this.ngZone.runOutsideAngular(() => {
+      this.chart.container(this.container.nativeElement);
+      this.chart.draw();
+      // this.cdr.detach();
+    });
   }
 
   blink(): void {
