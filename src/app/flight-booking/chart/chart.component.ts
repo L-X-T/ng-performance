@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DemoDataService } from '../shared/services/demo-data.service';
@@ -20,7 +20,12 @@ export class ChartComponent implements OnInit, AfterViewInit {
 
   chart: anychart.charts.Pie = null;
 
-  constructor(private chartDataService: DemoDataService, private element: ElementRef, private ngZone: NgZone) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private chartDataService: DemoDataService,
+    private element: ElementRef,
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     // Default data set mapping, hardcoded here.
@@ -28,11 +33,14 @@ export class ChartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // this.ngZone.runOutsideAngular(() => {
     this.chart.container(this.container.nativeElement);
     this.chart.draw();
+    // this.cdr.detach();
+    // });
   }
 
-  /*blink(): void {
+  blink(): void {
     // Dirty Hack used to visualize the change detector
     // let originalColor = this.element.nativeElement.firstChild.style.backgroundColor;
     this.element.nativeElement.firstChild.style.backgroundColor = 'crimson';
@@ -43,5 +51,5 @@ export class ChartComponent implements OnInit, AfterViewInit {
         this.element.nativeElement.firstChild.style.backgroundColor = 'white';
       }, 1000);
     });
-  }*/
+  }
 }

@@ -14,11 +14,17 @@ import { CommonModule } from '@angular/common';
 export class ChartsComponent implements AfterViewInit {
   title = 'Charts';
 
-  charts: { id: number; data: string }[] = [
-    { id: 1, data: 'data1' },
-    { id: 2, data: 'data2' },
-    { id: 3, data: 'data3' }
-  ];
+  charts: { id: number; data: string }[] = [];
+
+  constructor() {
+    for (let index = 1; index <= 120; index++) {
+      let dataNumber = index % 3;
+      if (!dataNumber) {
+        dataNumber = 3;
+      }
+      this.charts.push({ id: index, data: 'data' + dataNumber });
+    }
+  }
 
   @ViewChildren('cnt', { read: ViewContainerRef }) vCs!: QueryList<ViewContainerRef>;
 
