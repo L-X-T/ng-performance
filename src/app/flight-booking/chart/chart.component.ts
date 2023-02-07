@@ -1,13 +1,16 @@
 import { AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { DemoDataService } from '../shared/services/demo-data.service';
 
 import 'anychart';
 
 @Component({
+  standalone: true,
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
+  imports: [CommonModule]
 })
 export class ChartComponent implements OnInit, AfterViewInit {
   @Input() id = 0;
