@@ -116,4 +116,8 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   onStatusChange(index: number, f: Flight): void {
     this.flights[index] = { ...f };
   }
+
+  identifyFlightById(index: number, item: Flight): number {
+    return item.id;
+  }
 }
