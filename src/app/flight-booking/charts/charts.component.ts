@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChartComponent } from '../chart/chart.component';
+// import { ChartComponent } from '../chart/chart.component';
 
 @Component({
   standalone: true,
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.css'],
-  imports: [CommonModule, ChartComponent]
+  // imports: [CommonModule, ChartComponent]
+  imports: [CommonModule]
 })
-export class ChartsComponent {
+export class ChartsComponent implements AfterViewInit {
   title = 'Charts';
 
   charts: { id: number; data: string }[] = [
@@ -18,4 +19,13 @@ export class ChartsComponent {
     { id: 2, data: 'data2' },
     { id: 3, data: 'data3' }
   ];
+
+  @ViewChild('cnt', { read: ViewContainerRef }) vC!: ViewContainerRef;
+
+  async ngAfterViewInit() {
+    const esm = await import('../chart/chart.component');
+    const chartRef = this.vC.createComponent(esm.ChartComponent);
+    chartRef.instance.id = this.charts[0].id;
+    chartRef.instance.data = this.charts[0].data;
+  }
 }
