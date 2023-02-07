@@ -19,13 +19,17 @@ export class FlightCardComponent implements OnInit, OnChanges {
   @Output() isSelectedChange = new EventEmitter<boolean>();
   @Output() edit = new EventEmitter<void>();
 
-  constructor(private element: ElementRef, private ngZone: NgZone) {}
+  constructor(private element: ElementRef, private ngZone: NgZone) {
+    if (this.debug) {
+      console.warn('[FlightCardComponent - constructor()]');
+    }
+  }
 
   ngOnChanges(): void {
     if (this.debug) {
       console.warn('[FlightCardComponent - ngOnChanges()]');
       console.log(this.item);
-      console.log('isSelected: ' + this.isSelected);
+      // console.log('isSelected: ' + this.isSelected);
     }
   }
 
@@ -33,8 +37,12 @@ export class FlightCardComponent implements OnInit, OnChanges {
     if (this.debug) {
       console.warn('[FlightCardComponent - ngOnInit()]');
       console.log(this.item);
-      console.log('isSelected: ' + this.isSelected);
+      // console.log('isSelected: ' + this.isSelected);
     }
+  }
+
+  ngOnDestroy(): void {
+    console.warn('[FlightCardComponent - ngOnDestroy()]');
   }
 
   select(): void {
