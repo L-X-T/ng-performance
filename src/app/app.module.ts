@@ -2,7 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
+import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 
 // import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
@@ -17,11 +19,12 @@ import { APP_ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     HttpClientModule,
+    QuicklinkModule,
     // FlightBookingModule,
     RouterModule.forRoot(APP_ROUTES, {
       // useHash: true,
       // enableTracing: true,
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: QuicklinkStrategy
     }),
     NgOptimizedImage
   ],
