@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
@@ -11,6 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 
 import { APP_ROUTES } from './app.routes';
+import { CustomReuseStrategy } from './route-reuse-strategy';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { APP_ROUTES } from './app.routes';
     )
   ],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent],
+  providers: [{ provide: RouteReuseStrategy, useClass: CustomReuseStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

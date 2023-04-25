@@ -41,6 +41,8 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   constructor(private flightService: FlightService, private router: Router) {}
 
   ngOnInit(): void {
+    console.warn('FlightSearchComponent [ngAfterViewInit]');
+
     if (this.from && this.to) {
       this.search();
     }

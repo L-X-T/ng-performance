@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.css']
 })
-export class ChartsComponent {
+export class ChartsComponent implements AfterViewInit {
   title = 'Charts';
   chartsCount = 4;
   charts: { id: number; data: string }[] = [];
@@ -18,5 +18,9 @@ export class ChartsComponent {
       }
       this.charts.push({ id: index, data: 'data' + dataNumber });
     }
+  }
+
+  ngAfterViewInit(): void {
+    console.warn('ChartsComponent [ngAfterViewInit]');
   }
 }
