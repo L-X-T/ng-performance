@@ -53,7 +53,7 @@
           Search
         </button>
 
-        <button *ngIf="flights.length > 0" class="btn btn-default" style="margin-left: 10px"
+        <button *ngIf="(flights$ | async).length > 0" class="btn btn-default" style="margin-left: 10px"
                 (click)="delayFirstFlight()">
           Delay 1st Flight
         </button>
@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<h3 *ngIf="flights.length > 0" class="title">Flights with Subscription</h3>
+<!--<h3 *ngIf="flights.length > 0" class="title">Flights with Subscription</h3>
 <div *ngIf="flights.length > 0" class="row">
   <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <flight-card [item]="f"
@@ -72,9 +72,9 @@
       <flight-status-toggle style="margin-left: 10px" [(status)]="f.delayed"></flight-status-toggle>
     </flight-card>
   </div>
-</div>
+</div>-->
 
-<!--<ng-container *ngIf="flights$ | async as flights">
+<ng-container *ngIf="flights$ | async as flights">
   <h3 *ngIf="flights.length > 0" class="title">Flights with Aysnc Pipe</h3>
   <div *ngIf="flights.length > 0" class="row">
     <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -86,7 +86,7 @@
       </flight-card>
     </div>
   </div>
-</ng-container>-->
+</ng-container>
 
 <div class="card">
   <div class="content">

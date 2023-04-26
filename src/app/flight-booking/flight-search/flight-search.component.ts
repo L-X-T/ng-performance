@@ -22,7 +22,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   maxLength = 15;
 
   flights: Flight[] = [];
-  flights$: Observable<Flight[]>;
+  // flights$: Observable<Flight[]>;
   // flightsSubscription: Subscription;
 
   selectedFlight: Flight;
@@ -46,9 +46,13 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     }
   }
 
+  get flights$(): Observable<Flight[]> {
+    return this.flightService.flights$;
+  }
+
   search(): void {
     // 1. my observable
-    this.flights$ = this.flightService.find(this.from, this.to);
+    this.flightService.findReactive(this.from, this.to);
 
     // 2. my observer
     const flightsObserver: Observer<Flight[]> = {
@@ -60,7 +64,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     // 3. my subscription
     // this.flightsSubscription = this.flights$.subscribe(flightsObserver);
 
-    this.flights$.pipe(takeUntil(this.onDestroySubject)).subscribe(flightsObserver);
+    // this.flights$.pipe(takeUntil(this.onDestroySubject)).subscribe(flightsObserver);
   }
 
   ngOnDestroy(): void {
@@ -97,15 +101,6 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   }
 
   delayFirstFlight(): void {
-    if (this.flights.length > 0) {
-      const ONE_MINUTE = 1000 * 60;
-      const oldFlights = this.flights;
-      const oldFlight = oldFlights[0];
-      const oldDate = new Date(oldFlight.date);
-
-      // Mutable
-      oldDate.setTime(oldDate.getTime() + 15 * ONE_MINUTE);
-      oldFlight.date = oldDate.toISOString();
-    }
+    this.flightService.delayFirstFlight();
   }
 }
