@@ -16,7 +16,13 @@ Object.defineProperty(window, 'sessionStorage', { value: mock() });
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ['-webkit-appearance']
 });
-
+Object.defineProperty(window, 'getComputedStyle', {
+  value: () => ({
+    getPropertyValue: (prop: string) => {
+      return '';
+    }
+  })
+});
 Object.defineProperty(document.body.style, 'transform', {
   value: () => {
     return {

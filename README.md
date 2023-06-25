@@ -1,6 +1,6 @@
 # Angular Architects - Performance Workshop
 
-This project was re-generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4, by [Alex T.](https://alex.thalhammer.name) and is based upon work by [Manfred Steyer](https://github.com/manfredsteyer).
+This project was generated with the [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3, by [@LX_T](https://twitter.com/LX_T) and is based upon work by [@Manfred Steyer](https://twitter.com/ManfredSteyer). It's currently using Angular V16.
 
 ## Slides
 

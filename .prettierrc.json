@@ -10,41 +10,31 @@
   "endOfLine": "auto",
   "overrides": [
     {
-      "files": [
-        "*.css"
-      ],
+      "files": ["*.css"],
       "options": {
         "parser": "css"
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "options": {
         "parser": "angular"
       }
     },
     {
-      "files": [
-        "*.json"
-      ],
+      "files": ["*.json"],
       "options": {
         "parser": "json"
       }
     },
     {
-      "files": [
-        "*.scss"
-      ],
+      "files": ["*.scss"],
       "options": {
         "parser": "scss"
       }
     },
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "options": {
         "parser": "typescript"
       }
